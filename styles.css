@@ -676,7 +676,9 @@ p  { margin: 0 0 1em; }
 /* ---- Wall reveal ---- */
 #wall-section {
   position: relative;
+  margin-bottom: -100vh;
 }
+
 
 .hero-locked {
   opacity: 0;
