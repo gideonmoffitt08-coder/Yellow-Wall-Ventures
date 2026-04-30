@@ -676,7 +676,7 @@ p  { margin: 0 0 1em; }
 /* ---- Wall reveal ---- */
 #wall-section {
   position: relative;
-  margin-bottom: -150vh;
+  margin-bottom: -200vh;
 }
 
 
