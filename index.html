@@ -47,8 +47,16 @@
   </header>
 
   <main id="main">
+    <!-- WALL EXPLOSION SECTION -->
+<div id="wall-section" style="position:relative; height:350vh;">
+  <div style="position:sticky; top:0; height:100vh; overflow:hidden;">
+    <canvas id="wall-canvas" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+  </div>
+</div>
+    
     <!-- HERO -->
-    <section class="hero" id="top">
+    <section class="hero hero-locked" id="top">
+
       <div class="hero-bg" aria-hidden="true">
         <div class="grid-pattern"></div>
         <div class="glow glow-1"></div>
