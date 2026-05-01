@@ -174,18 +174,30 @@
     
   }
 
-  function onScroll() {
-    const section = document.getElementById('wall-section');
-    if (!section) return;
-    const maxScroll = section.offsetHeight - window.innerHeight;
-    const scrolled = window.scrollY;
-    draw(Math.min(1, scrolled / (maxScroll * 0.75)));
-  }
+  let currentProgress = 0;
+let targetProgress = 0;
+let rafId = null;
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', () => { setup(); onScroll(); });
-  setup();
-  draw(0);
+function onScroll() {
+  const section = document.getElementById('wall-section');
+  if (!section) return;
+  const maxScroll = section.offsetHeight - window.innerHeight;
+  targetProgress = Math.min(1, window.scrollY / (maxScroll * 0.75));
+}
+
+function tick() {
+  // Lerp toward target for smooth interpolation
+  currentProgress += (targetProgress - currentProgress) * 0.08;
+  draw(currentProgress);
+  rafId = requestAnimationFrame(tick);
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', () => { setup(); onScroll(); });
+
+setup();
+tick();
+
 })();
 (() => {
   'use strict';
