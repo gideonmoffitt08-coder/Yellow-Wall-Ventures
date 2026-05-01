@@ -171,11 +171,7 @@
       ctx.restore();
     }
 
-    // Fade in hero content during final 30% of explosion
-    const heroEl = document.querySelector('.hero');
-    if (heroEl) {
-      heroEl.classList.toggle('hero-unlocked', progress > 0.65);
-    }
+    
   }
 
   function onScroll() {
